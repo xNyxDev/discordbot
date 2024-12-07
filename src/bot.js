@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
+require("./app.js");
 
 const client = new Client({
   intents: [
@@ -10,7 +11,9 @@ const client = new Client({
 });
 
 client.once('ready', () => {
-  console.log(`Bot iniciado como ${client.user.tag}`);
+  console.log(`[BOT] - Bot iniciado como ${client.user.tag}`);
+  client.user.setActivity("TeamSombra");
+  client.user.setStatus("idle");
 });
 
 client.on('guildMemberAdd', (member) => {
